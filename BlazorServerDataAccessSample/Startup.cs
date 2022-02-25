@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
+using BlazorServerDataAccessSample.Repositories;
 using BlazorServerDataAccessSample.Services;
 
 namespace BlazorServerDataAccessSample
@@ -39,6 +40,7 @@ namespace BlazorServerDataAccessSample
             });
 
             //ServiceŠÖ˜A
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
         }
 

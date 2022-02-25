@@ -8,11 +8,11 @@ namespace BlazorServerDataAccessSample.Services
 {
     public class UserService : IUserService
     {
-        private readonly SampleDbContext _context;
+        private readonly IUserRepository _userRepository;
 
-        public UserService(SampleDbContext context)
+        public UserService(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
 
         public void Add(User entity)
@@ -31,8 +31,7 @@ namespace BlazorServerDataAccessSample.Services
         /// <returns></returns>
         public IEnumerable<User> GetAll()
         {
-            UserRepository userRepository = new UserRepository(_context);
-            return userRepository.GetAll();
+            return _userRepository.GetAll();
         }
 
         public void Remove(User entity)
