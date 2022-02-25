@@ -1,5 +1,7 @@
 # BlazorServerDataAccessSample
 
+Blazor ServerでSQL Serverのデータにアクセスし、データを一覧表示するサンプルです。
+
 ## Databaseの接続先について
 
 appsettings.jsonのConnectionStringをご自身の環境のSQL Serverに接続先を変更してください。
