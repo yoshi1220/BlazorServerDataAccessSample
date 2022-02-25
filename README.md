@@ -16,3 +16,11 @@ Update-Database
 
 を実行してください。
 DBの作成及び、サンプルデータが作成されます。
+
+
+## 開発環境
+
+- Visual Stduio 2019
+- Blazor Server 
+- .NET5
+- Entity Framework Core 5.0.14
