@@ -21,10 +21,8 @@ namespace BlazorServerDataAccessSample
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            AppSettings.Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -36,11 +34,14 @@ namespace BlazorServerDataAccessSample
             //DB関連
             services.AddDbContext<SampleDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(AppSettings.Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            //Service関連
-            services.AddScoped<IUserRepository, UserRepository>();
+            //Repository関連
+            //services.AddScoped<IUserRepository, UserRepository>(); //EntityFrameworkCoreを使う場合
+            services.AddScoped<IUserRepository, UserRepositoryDapper>(); //Dapperを使う場合
+
+            //Service関連            
             services.AddScoped<IUserService, UserService>();
         }
 
@@ -69,5 +70,11 @@ namespace BlazorServerDataAccessSample
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
+    }
+
+    //appsettings.jsonからデータを取得する際に使用。どこからでも参照可能にする
+    public static class AppSettings
+    {
+        public static IConfiguration Configuration { get; set; }
     }
 }
