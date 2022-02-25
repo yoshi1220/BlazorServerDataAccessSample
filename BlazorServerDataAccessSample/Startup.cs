@@ -31,10 +31,14 @@ namespace BlazorServerDataAccessSample
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            //DBŠÖ˜A
             services.AddDbContext<SampleDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            //ServiceŠÖ˜A
             services.AddScoped<IUserService, UserService>();
         }
 

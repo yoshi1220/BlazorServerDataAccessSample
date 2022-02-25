@@ -1,11 +1,8 @@
-﻿using BlazorServerDataAccessSample.Data.Models;
+﻿using BlazorServerDataAccessSample.Data;
+using BlazorServerDataAccessSample.Data.Models;
+using BlazorServerDataAccessSample.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using BlazorServerDataAccessSample.Data;
-using BlazorServerDataAccessSample.Repositories;
 
 namespace BlazorServerDataAccessSample.Services
 {
@@ -28,6 +25,10 @@ namespace BlazorServerDataAccessSample.Services
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// ユーザーデータを全件取得
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<User> GetAll()
         {
             UserRepository userRepository = new UserRepository(_context);

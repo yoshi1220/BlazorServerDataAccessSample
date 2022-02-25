@@ -30,6 +30,7 @@
 
     protected override void OnInitialized()
     {
+        //ユーザー一覧データの取得
         users = UserService.GetAll().ToList();
     }
 }
