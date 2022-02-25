@@ -1,0 +1,36 @@
+﻿@page "/user/index"
+@inject IUserService UserService;
+
+<h3>User Index</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ユーザー番号</th>
+            <th>名前</th>
+            <th>Email</th>
+            <th>誕生日</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in users)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.UserName</td>
+                <td>@user.MailAddress</td>
+                <td>@user.BirthDay.ToString("yyyy年MM月dd日")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<User> users;
+
+    protected override void OnInitialized()
+    {
+        users = UserService.GetAll().ToList();
+    }
+}
+
