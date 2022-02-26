@@ -44,7 +44,7 @@ namespace BlazorServerDataAccessSample.Migrations
                         {
                             UserId = 1,
                             BirthDay = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MailAddress = "yamada@mai.com",
+                            MailAddress = "yamada@mail.com",
                             UserName = "山田太郎"
                         },
                         new

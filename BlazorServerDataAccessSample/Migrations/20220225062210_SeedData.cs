@@ -18,7 +18,7 @@ namespace BlazorServerDataAccessSample.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserId", "BirthDay", "MailAddress", "UserName" },
-                values: new object[] { 1, new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "yamada@mai.com", "山田太郎" });
+                values: new object[] { 1, new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "yamada@mail.com", "山田太郎" });
 
             migrationBuilder.InsertData(
                 table: "Users",
