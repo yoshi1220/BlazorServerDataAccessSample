@@ -28,7 +28,7 @@ namespace BlazorServerDataAccessSample.Data
                     {
                         UserId = 1,
                         UserName = "山田太郎",
-                        MailAddress = "yamada@mai.com",
+                        MailAddress = "yamada@mail.com",
                         BirthDay = new DateTime(2001, 1, 1)
                     },
                     new User
